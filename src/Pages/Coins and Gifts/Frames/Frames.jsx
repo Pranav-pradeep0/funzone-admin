@@ -11,11 +11,15 @@ import { IconButton } from "@mui/material";
 import { Pencil, Trash } from "@phosphor-icons/react";
 import theme from "../../../../theme";
 import ConfirmationPopover from "../../../Components/ConfirmationPopover";
+import TopAddNewBar from "../../../Components/TopAddNewBar";
+import { useNavigate } from "react-router-dom";
 
 const Frames = () => {
   const [frames, setFrames] = useState();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
+
+  const navigate = useNavigate()
 
   const fetchAllFrames = async () => {
     const response = await getAllFrames();
@@ -95,6 +99,10 @@ const Frames = () => {
 
   return (
     <div>
+      <TopAddNewBar
+        label={"Frames List"}
+        onAddButtonClick={() => navigate("/frames/add")}
+      />
       <DataTable columns={columns} rows={formattedFrameRows} />
       <ConfirmationPopover
         anchorEl={anchorEl}

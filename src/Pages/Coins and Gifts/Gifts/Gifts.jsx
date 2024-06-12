@@ -11,11 +11,15 @@ import { IconButton } from "@mui/material";
 import { Pencil, Trash } from "@phosphor-icons/react";
 import theme from "../../../../theme";
 import ConfirmationPopover from "../../../Components/ConfirmationPopover";
+import TopAddNewBar from "../../../Components/TopAddNewBar";
+import { useNavigate } from "react-router-dom";
 
 const Gifts = () => {
   const [gifts, setGifts] = useState();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
+  
+  const navigate = useNavigate()
 
   const fetchAllGifts = async () => {
     const response = await getAllGifts();
@@ -95,6 +99,10 @@ const Gifts = () => {
 
   return (
     <div>
+      <TopAddNewBar
+        label={"Gifts List"}
+        onAddButtonClick={() => navigate("/gifts/add")}
+      />
       <DataTable columns={columns} rows={formattedFrameRows} />
       <ConfirmationPopover
         anchorEl={anchorEl}

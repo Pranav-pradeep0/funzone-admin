@@ -12,6 +12,12 @@ import Conversion from "./Pages/Coins and Gifts/Conversion/Conversion";
 import Wallpapers from "./Pages/Coins and Gifts/Wallpapers/Wallpapers";
 import Frames from "./Pages/Coins and Gifts/Frames/Frames";
 import Gifts from "./Pages/Coins and Gifts/Gifts/Gifts";
+import AddNewCoin from "./Pages/Coins and Gifts/Coins/AddNewCoin";
+import AddNewGift from "./Pages/Coins and Gifts/Gifts/AddNewGift";
+import AddNewFrame from "./Pages/Coins and Gifts/Frames/AddNewFrame";
+import Levels from "./Pages/Levels/Levels";
+import AddNewLevel from "./Pages/Levels/AddNewLevel";
+import AddNewUser from "./Pages/Users/AddNewUser";
 
 const App = () => {
   const mediaQuery800px = useMediaQuery("(min-width:800px)");
@@ -37,6 +43,27 @@ const App = () => {
             <Route path="/wallpapers" element={<Wallpapers />} />
             <Route path="/frames" element={<Frames />} />
             <Route path="/gifts" element={<Gifts />} />
+            <Route path="/levels" element={<Levels />} />
+
+            {/* Coins */}
+            <Route path="/coins/add" element={<AddNewCoin />} />
+            <Route path="/coins/:type/:id" element={<AddNewCoin />} />
+
+            {/* Gift */}
+            <Route path="/gifts/add" element={<AddNewGift />} />
+            <Route path="/gifts/:type/:id" element={<AddNewGift />} />
+
+            {/* Frame */}
+            <Route path="/frames/add" element={<AddNewFrame />} />
+            <Route path="/frames/:type/:id" element={<AddNewFrame />} />
+
+            {/* Levels */}
+            <Route path="/levels/add" element={<AddNewLevel />} />
+            <Route path="/levels/:type/:id" element={<AddNewLevel />} />
+
+            {/* Users */}
+            <Route path="/users/add" element={<AddNewUser />} />
+            <Route path="/users/:type/:id" element={<AddNewUser />} />
           </Routes>
         </Box>
       </Box>

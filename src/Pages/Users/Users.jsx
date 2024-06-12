@@ -1,9 +1,11 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab, useTheme } from "@mui/material";
+import { Box, Button, Tab, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import Userlist from "./UserTabs/Userlist";
 import KycRequests from "./UserTabs/KycRequests";
 import BlackLists from "./UserTabs/BlackLists";
+import { Plus } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
 
 const tabs = [
   {
@@ -23,6 +25,8 @@ const tabs = [
 const Users = () => {
   const theme = useTheme();
 
+  const navigate = useNavigate()
+
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -31,6 +35,14 @@ const Users = () => {
 
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
+      <Button sx={{
+        display:'flex',
+        gap:'5px',
+        marginLeft:'auto'
+      }} onClick={()=> navigate('/users/add')}>
+        <Plus size={18}/>
+        Add New
+      </Button>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList

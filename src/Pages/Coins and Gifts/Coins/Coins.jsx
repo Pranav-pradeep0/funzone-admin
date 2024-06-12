@@ -13,6 +13,8 @@ import TableToggleSwitch from "../../../Components/TableToggleSwitch";
 import InputField from "../../../Components/InputField";
 import SelectField from "../../../Components/SelectField";
 import { Slide, ToastContainer, toast } from "react-toastify";
+import TopAddNewBar from "../../../Components/TopAddNewBar";
+import { useNavigate } from "react-router-dom";
 
 const columns = [
   { field: "slno", headerName: "Sl No" },
@@ -56,6 +58,8 @@ const Coins = () => {
     id: "",
   });
   const [validationErrors, setValidationErrors] = useState();
+
+  const navigate = useNavigate()
 
   const fetchCoinList = async () => {
     const response = await getCoinList();
@@ -187,6 +191,7 @@ const Coins = () => {
           Update
         </Button>
       </Box>
+      <TopAddNewBar label={'Coin Purchase Packages'} onAddButtonClick={()=>navigate('/coins/add')}/>
       <ToastContainer position="top-center" transition={"Slide"} />
       <DataTable columns={columns} rows={formattedCoinRows} />
     </div>
