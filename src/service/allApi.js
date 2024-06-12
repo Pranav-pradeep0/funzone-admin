@@ -49,3 +49,33 @@ export const getConversionFactors = async () => {
 export const conversionsEdit = async (body) => {
   return commonRequest("PUT", "api/users/updateCoinConversion", body);
 };
+
+// Wallpapers
+
+export const getAllWallpapers = async () => {
+  return commonRequest("GET", "api/users/getAllWallpaper");
+};
+
+export const deleteWallpaper = async (id) => {
+  return commonRequest("DELETE", `api/users/deleteWallpaper/${id}`);
+};
+
+// Frames
+
+export const getAllFrames = async () => {
+  return commonRequest("GET", "api/users/getAllFrame");
+};
+
+export const deleteFrame = async (id) => {
+  return commonRequest("DELETE", `api/users/deleteFrame/${id}`);
+};
+
+// Gifts
+
+export const getAllGifts = async () => {
+  return commonRequest("GET", "api/users/getAllGifts");
+};
+
+export const deleteGift = async (id) => {
+  return commonRequest("DELETE", `api/users/deleteGift/${id}`);
+};

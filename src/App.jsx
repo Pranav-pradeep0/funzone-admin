@@ -9,6 +9,9 @@ import LanguageList from "./Pages/Language/LanguageList";
 import Coins from "./Pages/Coins and Gifts/Coins/Coins";
 import "react-toastify/dist/ReactToastify.css";
 import Conversion from "./Pages/Coins and Gifts/Conversion/Conversion";
+import Wallpapers from "./Pages/Coins and Gifts/Wallpapers/Wallpapers";
+import Frames from "./Pages/Coins and Gifts/Frames/Frames";
+import Gifts from "./Pages/Coins and Gifts/Gifts/Gifts";
 
 const App = () => {
   const mediaQuery800px = useMediaQuery("(min-width:800px)");
@@ -31,6 +34,9 @@ const App = () => {
             <Route path="/language" element={<LanguageList />} />
             <Route path="/coins" element={<Coins />} />
             <Route path="/conversion" element={<Conversion />} />
+            <Route path="/wallpapers" element={<Wallpapers />} />
+            <Route path="/frames" element={<Frames />} />
+            <Route path="/gifts" element={<Gifts />} />
           </Routes>
         </Box>
       </Box>
