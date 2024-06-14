@@ -6,11 +6,15 @@ import { IconButton } from "@mui/material";
 import { Pencil, Trash } from "@phosphor-icons/react";
 import theme from "../../../../theme";
 import ConfirmationPopover from "../../../Components/ConfirmationPopover";
+import TopAddNewBar from "../../../Components/TopAddNewBar";
+import { useNavigate } from "react-router-dom";
 
 const Wallpapers = () => {
   const [wallpapers, setWallpapers] = useState();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
+
+  const navigate = useNavigate();
 
   const fetchAllWallpapers = async () => {
     const response = await getAllWallpapers();
@@ -59,7 +63,7 @@ const Wallpapers = () => {
       headerName: "Edit",
       renderCell: (value) => (
         <>
-          <IconButton>
+          <IconButton onClick={() => navigate(`/wallpapers/edit/${value}`)}>
             <Pencil size={20} color={theme.palette.info.main} />
           </IconButton>
           <IconButton
@@ -90,6 +94,10 @@ const Wallpapers = () => {
 
   return (
     <div>
+      <TopAddNewBar
+        label={"Wallpapers List"}
+        onAddButtonClick={() => navigate("/wallpaper/add")}
+      />
       <DataTable columns={columns} rows={formattedWallpaperRows} />
       <ConfirmationPopover
         anchorEl={anchorEl}

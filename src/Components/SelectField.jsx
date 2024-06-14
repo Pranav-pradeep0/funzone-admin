@@ -1,12 +1,7 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { useState } from "react";
 
-const SelectField = () => {
-  const [value, setValue] = useState("");
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+const SelectField = ({ name, onChange, value, options }) => {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
@@ -15,11 +10,30 @@ const SelectField = () => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={value}
-          onChange={handleChange}
+          name={name}
+          onChange={onChange}
+          inputProps={{
+            "aria-label": "Without label",
+            style: {
+              padding: "10px",
+              borderRadius: "10px",
+              backgroundColor: "transparent",
+              color: "black",
+            },
+          }}
+          sx={{
+            borderRadius: "5px",
+            backgroundColor: "transparent",
+            ".MuiSelect-icon": {
+              color: "black",
+            },
+          }}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {options?.map((item) => (
+            <MenuItem value={item.value ? item.value : item.name}>
+              {item.name}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

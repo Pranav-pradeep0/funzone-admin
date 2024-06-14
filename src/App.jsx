@@ -18,6 +18,13 @@ import AddNewFrame from "./Pages/Coins and Gifts/Frames/AddNewFrame";
 import Levels from "./Pages/Levels/Levels";
 import AddNewLevel from "./Pages/Levels/AddNewLevel";
 import AddNewUser from "./Pages/Users/AddNewUser";
+import Leaderboard from "./Pages/LeaderBoard/Leaderboard";
+import AddNewLeaderboard from "./Pages/LeaderBoard/AddNewLeaderboard";
+import Rooms from "./Pages/Room/Rooms";
+import AddNewRoom from "./Pages/Room/AddNewRoom";
+import Banners from "./Pages/Banner/Banners";
+import AddNewBanner from "./Pages/Banner/AddNewBanner";
+import AddNewWallpaper from "./Pages/Coins and Gifts/Wallpapers/AddNewWallpaper";
 
 const App = () => {
   const mediaQuery800px = useMediaQuery("(min-width:800px)");
@@ -44,6 +51,9 @@ const App = () => {
             <Route path="/frames" element={<Frames />} />
             <Route path="/gifts" element={<Gifts />} />
             <Route path="/levels" element={<Levels />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/rooms" element={<Rooms />} />
+            <Route path="/banner" element={<Banners />} />
 
             {/* Coins */}
             <Route path="/coins/add" element={<AddNewCoin />} />
@@ -64,6 +74,25 @@ const App = () => {
             {/* Users */}
             <Route path="/users/add" element={<AddNewUser />} />
             <Route path="/users/:type/:id" element={<AddNewUser />} />
+
+            {/* Leaderboard */}
+            <Route path="/leaderboard/add" element={<AddNewLeaderboard />} />
+            <Route
+              path="/leaderboard/:type/:id"
+              element={<AddNewLeaderboard />}
+            />
+
+            {/* Rooms */}
+            <Route path="/rooms/add" element={<AddNewRoom />} />
+            <Route path="/rooms/:type/:id" element={<AddNewRoom />} />
+
+            {/* Banner */}
+            <Route path="/banner/add" element={<AddNewBanner />} />
+            <Route path="/banner/:type/:id" element={<AddNewBanner />} />
+
+            {/* Wallpaper */}
+            <Route path="/wallpapers/add" element={<AddNewWallpaper />} />
+            <Route path="/wallpapers/:type/:id" element={<AddNewWallpaper />} />
           </Routes>
         </Box>
       </Box>

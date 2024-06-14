@@ -75,8 +75,8 @@ const InputField = ({
       fullWidth={fullWidth}
       sx={{
         ...styles,
-        border: `${borderColour} 1px solid`,
-        borderRadius: "10px",
+        border: `${borderColour} 1.5px solid`,
+        borderRadius: "5px",
         color: "black",
         paddingInline: "10px",
         paddingBlock: "2px",

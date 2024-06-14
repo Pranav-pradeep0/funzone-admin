@@ -52,6 +52,19 @@ export const conversionsEdit = async (body) => {
 
 // Wallpapers
 
+export const createWallpaper = async (body) => {
+  return commonRequest(
+    "POST",
+    "api/users/wallpaper",
+    body,
+    "multipart/form-data"
+  );
+};
+
+export const getWallpaperById = async (id) => {
+  return commonRequest("GET", `api/users/getWallpaper/${id}`);
+};
+
 export const getAllWallpapers = async () => {
   return commonRequest("GET", "api/users/getAllWallpaper");
 };

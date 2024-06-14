@@ -20,8 +20,10 @@ const CreateNewTopBar = ({
           flexWrap: "wrap",
         }}
       >
-        <Box sx={{display:'flex', alignItems:'center', gap:'20px'}}>
-            <IconButton><ArrowLeft size={28} color="black"/></IconButton>
+        <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <IconButton>
+            <ArrowLeft size={28} color="black" />
+          </IconButton>
           <span style={{ fontWeight: 700, fontSize: "18px" }}>{label}</span>
         </Box>
         <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
@@ -32,10 +34,13 @@ const CreateNewTopBar = ({
               alignItems: "center",
               justifyContent: "center",
               gap: "5px",
-              backgroundColor:'white',
-              color:theme.palette.error.main,
-              border:'1px solid',
+              backgroundColor: "white",
+              color: theme.palette.error.main,
+              border: "1px solid",
               borderColor: theme.palette.error.main,
+              "& :hover": {
+                color: "white",
+              },
             }}
             onClick={onDeleteButtonClick}
           >
